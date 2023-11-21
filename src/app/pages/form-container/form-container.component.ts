@@ -1,124 +1,39 @@
 import {Component, Input, NO_ERRORS_SCHEMA, OnInit, ViewChild} from '@angular/core';
+import {FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 import {QuestionBase} from '../../question-base';
 import {QuestionControlService} from 'src/app/_services/question-control.service';
-import { DynamicFormQuestionComponent } from '../dynamic-form-question/dynamic-form-question.component';
-import {DynamicFormComponent} from 'src/app/components/dynamic-form/dynamic-form.component';
+
 import { QuestionService } from 'src/app/_services/question.service';
 import { Validators } from "@angular/forms";
 
 import { FieldConfig } from 'src/app/field.interface';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
+import * as sampleForms from 'src/app/_models/sampleForms';
+import { MaterialModule } from 'src/app/material.module';
+/*import {DynamicFormComponent} from 'src/app/components/dynamic-form/dynamic-form.component';
+import { DynamicFieldDirective } from 'src/app/components/dynamic-field/dynamic-field.directive';*/
 
 
 @Component({
   standalone: true,
   selector: 'app-form-container',
   templateUrl: './form-container.component.html',
-  providers: [QuestionControlService],
-  imports: [CommonModule, DynamicFormQuestionComponent, ReactiveFormsModule],
-  schemas: [NO_ERRORS_SCHEMA]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule],
+  providers: [QuestionControlService]//, DynamicFieldDirective
 })
 export class FormContainerComponent implements OnInit {
-  @ViewChild(DynamicFormComponent) form!: DynamicFormComponent;
-  regConfig: FieldConfig[] = [
-    {
-      type: "input",
-      label: "Username",
-      inputType: "text",
-      name: "name",
-      validations: [
-        {
-          name: "required",
-          validator: Validators.required,
-          message: "Name Required"
-        },
-        {
-          name: "pattern",
-          validator: Validators.pattern("^[a-zA-Z]+$"),
-          message: "Accept only text"
-        }
-      ]
-    },
-    {
-      type: "input",
-      label: "Email Address",
-      inputType: "email",
-      name: "email",
-      validations: [
-        {
-          name: "required",
-          validator: Validators.required,
-          message: "Email Required"
-        },
-        {
-          name: "pattern",
-          validator: Validators.pattern(
-          "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
-          ),
-          message: "Invalid email"
-        }
-      ]
-    },
-    {
-      type: "input",
-      label: "Password",
-      inputType: "password",
-      name: "password",
-      validations: [
-        {
-          name: "required",
-          validator: Validators.required,
-          message: "Password Required"
-        }
-      ]
-    },
-    {
-      type: "radiobutton",
-      label: "Gender",
-      name: "gender",
-      options: ["Male", "Female"],
-      value: "Male"
-    },
-    {
-      type: "date",
-      label: "DOB",
-      name: "dob",
-      validations: [
-        {
-        name: "required",
-        validator: Validators.required,
-        message: "Date of Birth Required"
-        }
-      ]
-    },
-    {
-      type: "select",
-      label: "Country",
-      name: "country",
-      value: "UK",
-      options: ["India", "UAE", "UK", "US"]
-    },
-    {
-      type: "checkbox",
-      label: "Accept Terms",
-      name: "term",
-      value: true
-    },
-    {
-      type: "button",
-      label: "Save"
-    }
-  ];
-
+ // @ViewChild(DynamicFormComponent) form!: DynamicFormComponent;
+  regConfig: FieldConfig[] =  sampleForms.formContatto;
   questions: QuestionBase<string>[] | undefined;
+  empForm!: FormGroup;
   //form!: FormGroup;
   payLoad = '';
 
-  constructor(public service: QuestionService, private qcs: QuestionControlService, public translate: TranslateService) {
+  constructor(public service: QuestionService, private qcs: QuestionControlService, public translate: TranslateService,
+    private fb: FormBuilder) {
     translate.addLangs(environment.arrayLangs);
     this.translate.setDefaultLang(environment.defaultLang);
     this.translate.use(environment.defaultLang)
@@ -135,10 +50,54 @@ export class FormContainerComponent implements OnInit {
 
   ngOnInit() {
     //this.form = this.qcs.toFormGroup(this.questions as QuestionBase<string>[]);
+    this.empForm = this.fb.group({
+      employees: this.fb.array([])
+    });
+  }
+
+  employees(): FormArray {
+    return this.empForm.get('employees') as FormArray;
+  }
+
+  newEmployee(): FormGroup {
+    return this.fb.group({
+      firstName: '',
+      lastName: '',
+      skills: this.fb.array([])
+    });
+  }
+
+  addEmployee() {
+    this.employees().push(this.newEmployee());
+  }
+
+  removeEmployee(empIndex: number) {
+    this.employees().removeAt(empIndex);
+  }
+
+  employeeSkills(empIndex: number): FormArray {
+    return this.employees()
+      .at(empIndex)
+      .get('skills') as FormArray;
+  }
+
+  newSkill(): FormGroup {
+    return this.fb.group({
+      skill: '',
+      exp: ''
+    });
+  }
+
+  addEmployeeSkill(empIndex: number) {
+    this.employeeSkills(empIndex).push(this.newSkill());
+  }
+
+  removeEmployeeSkill(empIndex: number, skillIndex: number) {
+    this.employeeSkills(empIndex).removeAt(skillIndex);
   }
 
   onSubmit() {
-    //this.payLoad = JSON.stringify(this.form.getRawValue());
+    console.log(this.empForm.value);
   }
 
   submit(payload: any) {

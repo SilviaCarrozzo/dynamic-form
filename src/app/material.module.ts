@@ -13,7 +13,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-//import { MatMomentDateModule } from "@angular/material-";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatToolbarModule} from '@angular/material/toolbar';
+//import { MatMomentDateModule } from "@angular/material/";
 
 @NgModule({
     imports: [
@@ -27,6 +29,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
       MatDatepickerModule,
       MatNativeDateModule,
      // MatMomentDateModule,
+      MatProgressSpinnerModule,
+      MatToolbarModule,
       MatSnackBarModule,
       MatSelectModule,
       MatOptionModule,
@@ -43,6 +47,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
       MatDatepickerModule,
       MatNativeDateModule,
      // MatMomentDateModule,
+      MatProgressSpinnerModule,
+      MatToolbarModule,
       MatSnackBarModule,
       MatDatepickerToggle,
       MatSelectModule,

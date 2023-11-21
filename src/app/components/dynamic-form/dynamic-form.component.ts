@@ -1,29 +1,31 @@
-import { Component, EventEmitter, Input, NO_ERRORS_SCHEMA, OnChanges, OnInit, Output } from "@angular/core";
-import { FormGroup, FormBuilder, Validators, FormControl, ReactiveFormsModule } from "@angular/forms";
+import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, NO_ERRORS_SCHEMA, OnChanges, OnInit, Output } from "@angular/core";
+import { FormGroup, FormBuilder, Validators, FormControl, ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { FieldConfig, Validator } from "../../field.interface";
 import { CommonModule } from "@angular/common";
-import { QuestionBase } from "src/app/question-base";
+//import { QuestionBase } from "src/app/question-base";
 
 @Component({
   standalone: true,
   selector: 'dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  imports: [CommonModule, ReactiveFormsModule],
-  schemas: [NO_ERRORS_SCHEMA]
+  imports: [CommonModule, ReactiveFormsModule]
 })
 export class DynamicFormComponent {
   @Input() fields: FieldConfig[] = [];
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
-  form!: FormGroup;
+  formToBuild!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
   get value() {
-    return this.form.value;
+    return this.formToBuild.value;
   }
 
   ngOnInit() {
-    this.form = this.createControl();
+    console.log("fields: ", this.fields);
+
+    this.formToBuild = this.createControl();
+    console.log("formToBuild: ", this.formToBuild)
   }
 
 
@@ -57,10 +59,10 @@ export class DynamicFormComponent {
   onSubmit(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    if (this.form.valid) {
-    this.submit.emit(this.form.value);
+    if (this.formToBuild.valid) {
+    this.submit.emit(this.formToBuild.value);
     } else {
-    this.validateAllFormFields(this.form);
+    this.validateAllFormFields(this.formToBuild);
     }
   }
 

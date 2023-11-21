@@ -24,13 +24,15 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DynamicFieldDirective } from './components/dynamic-field/dynamic-field.directive';
+
 import { InputComponent } from './components/input/input.component';
 import { ButtonComponent } from './components/button/button.component';
 import { SelectComponent } from './components/select/select.component';
 import { DateComponent } from './components/date/date.component';
 import { RadiobuttonComponent } from './components/radiobutton/radiobutton.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
+//import { DynamicFieldDirective } from './components/dynamic-field/dynamic-field.directive';
+//import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 //import { AuthModule } from './auth/auth.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -78,7 +80,7 @@ export function translateFactory(translate: TranslateService) {
 @NgModule({
   declarations: [
     AppComponent,
-    DynamicFieldDirective,
+    //DynamicFieldDirective,
     //DynamicFormComponent,
     //DynamicFormQuestionComponent
   ],
@@ -97,6 +99,7 @@ export function translateFactory(translate: TranslateService) {
     InputComponent,
     ButtonComponent,
     SelectComponent,
+   // DynamicFieldDirective,
     DateComponent,
     RadiobuttonComponent,
     CheckboxComponent,
@@ -131,7 +134,7 @@ export function translateFactory(translate: TranslateService) {
     },
   ],
   exports: [
-    TranslateModule, NgZorroAntdModule, MaterialModule
+    TranslateModule, NgZorroAntdModule, MaterialModule //DynamicFieldDirective,
   ],
   bootstrap: [AppComponent]
 })

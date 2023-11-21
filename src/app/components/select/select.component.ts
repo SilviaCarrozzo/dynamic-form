@@ -14,8 +14,7 @@ import { MaterialModule } from "src/app/material.module";
 export class SelectComponent implements OnInit {
   field!: FieldConfig;
   group!: FormGroup;
- // @Input() placeholder: string = '';
- // @Input() formControlName: string = '';
+
   constructor() {}
   ngOnInit() {}
 }

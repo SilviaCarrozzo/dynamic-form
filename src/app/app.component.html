@@ -12,19 +12,6 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
-          </li>
-        </ul>
-      </li>
       <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
         <ul>
           <li nz-menu-item nzMatchRouter>
@@ -33,8 +20,9 @@
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/dynamic-form">Dynamic Forms</a>
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/dynamic-form-question">Dynamic Forms Question</a>
+          <li nz-submenu nzOpen nzTitle="Componenti" nzIcon="form">
+
+
           </li>
         </ul>
       </li>
@@ -55,10 +43,23 @@
       <div class="inner-content">
         <h1 class="text-center title">{{title}}</h1>
 
-        <block-ui>
-          <router-outlet></router-outlet>
-        </block-ui>
+        <router-outlet></router-outlet>
+        <!--<block-ui></block-ui>-->
       </div>
     </nz-content>
   </nz-layout>
 </nz-layout>
+
+<!--<li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/welcome">Welcome</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a>Monitor</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a>Workplace</a>
+      </li>
+    </ul>
+  </li>-->

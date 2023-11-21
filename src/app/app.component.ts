@@ -17,7 +17,6 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   providers: [QuestionService, AsyncPipe],
-  //imports: [CommonModule, DynamicFormComponent]
 })
 export class AppComponent {
   // Decorator wires up blockUI instance

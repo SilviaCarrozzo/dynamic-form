@@ -1,9 +1,6 @@
-<div class="form">
-  <div style="text-align:center">
-  <h1>Modulo:</h1>
-  </div>
-  <!--<dynamic-form [fields]="regConfig" (submit)="submit($event)">
-  </dynamic-form>-->
+<!--
+  <h1>Angular Nested FormArray / Dynamic FormArray</h1>
+
   <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
     <div formArrayName="employees">
       <div *ngFor="let employee of employees().controls; let empIndex=index">
@@ -44,24 +41,10 @@
   </form>
 
   {{this.empForm.value | json}}
-  <div class="margin-top">
-  </div>
-</div>
 
-
-<!--{{ form.value | json }}
-  <div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let question of questions" class="form-row">
-      <app-question [question]="question" [form]="form"></app-question>
-    </div>
-
-    <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
-    </div>
-  </form>
-
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br />{{ payLoad }}
-  </div>
-</div>-->
+  <br /><br />
+  <a
+    href="https://www.tektutorialshub.com/angular/nested-formarray-example-add-form-fields-dynamically/"
+    >Nested FormArray / Dynamic FormArray</a
+  >
+-->
