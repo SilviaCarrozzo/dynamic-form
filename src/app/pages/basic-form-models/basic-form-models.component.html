@@ -1,7 +1,8 @@
 <h3>Modelli disponibili</h3>
 
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let model of models">{{model}}</li>
+    <li class="list-group-item" *ngFor="let mod of formModels" >
+      <a [routerLink]="mod.id">{{mod.label}}</a></li>
     <li class="list-group-item">Aggiungi Modulo</li>
   </ul>
 

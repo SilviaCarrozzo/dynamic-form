@@ -26,13 +26,14 @@ export class AppComponent {
   isCollapsed = false;
   title: string = 'Dynamic Form'
   questions$: Observable<QuestionBase<any>[]>;
+  formKind: string = 'characteristicForm';
 
 
   constructor(public translate: TranslateService, service: QuestionService) {
     translate.addLangs(environment.arrayLangs);
     this.translate.setDefaultLang(environment.defaultLang);
     this.translate.use(environment.defaultLang)
-    this.questions$ = service.getQuestions();
+    this.questions$ = service.getQuestions(this.formKind);
     this.blockUI.start('Loading...'); // Start blocking
 
     setTimeout(() => {

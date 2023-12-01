@@ -2,36 +2,6 @@ import { QuestionBase } from "../question-base";
 import { DropdownQuestion } from "../question-dropdown";
 import { TextboxQuestion } from "../question-textbox";
 
-/*const questions: QuestionBase<string>[] = [
-
-      new DropdownQuestion({
-        key: 'brave',
-        label: 'Bravery Rating',
-        options: [
-          {key: 'solid',  value: 'Solid'},
-          {key: 'great',  value: 'Great'},
-          {key: 'good',   value: 'Good'},
-          {key: 'unproven', value: 'Unproven'}
-        ],
-        order: 3
-      }),
-
-      new TextboxQuestion({
-        key: 'firstName',
-        label: 'First name',
-        value: 'Bombasto',
-        required: true,
-        order: 1
-      }),
-
-      new TextboxQuestion({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
-        order: 2
-      })
-    ];*/
-
 
 export const characteristicForm: QuestionBase<string>[] = [
   //'CHARACT_ID': new FormControl(null, Validators.required),
@@ -118,10 +88,12 @@ export const characteristicForm: QuestionBase<string>[] = [
         'AVG_ACT': new FormControl(null),
         'STD_DEV_ACT': new FormControl(null),
         'P_DEFECTS': new FormControl(null),
-      });
+      });*/
+    ];
 
 
-
+    export const processForm: QuestionBase<string>[] = [];
+      /*processForm
  this.validateForm = new FormGroup({
         'PROC_ID': new FormControl(null, Validators.required),
         'PROC_POS': new FormControl(this.nzModalData.nProcessi || 0),
@@ -141,5 +113,37 @@ export const characteristicForm: QuestionBase<string>[] = [
         'P_RIC_TRS':  new FormControl(null),
         'P_UPDATE_LABEL':  new FormControl(null)
       });*/
-];
+
+    export const planForm: QuestionBase<string>[] = [];
+
+    /*const questions: QuestionBase<string>[] = [
+
+    new DropdownQuestion({
+      key: 'brave',
+      label: 'Bravery Rating',
+      options: [
+        {key: 'solid',  value: 'Solid'},
+        {key: 'great',  value: 'Great'},
+        {key: 'good',   value: 'Good'},
+        {key: 'unproven', value: 'Unproven'}
+      ],
+      order: 3
+    }),
+
+    new TextboxQuestion({
+      key: 'firstName',
+      label: 'First name',
+      value: 'Bombasto',
+      required: true,
+      order: 1
+    }),
+
+    new TextboxQuestion({
+      key: 'emailAddress',
+      label: 'Email',
+      type: 'email',
+      order: 2
+    })
+  ];*/
+
 

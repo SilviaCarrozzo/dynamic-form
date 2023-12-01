@@ -1,4 +1,4 @@
-import {Component, Input, NO_ERRORS_SCHEMA, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
@@ -13,34 +13,45 @@ import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 import * as sampleForms from 'src/app/_models/sampleForms';
 import { MaterialModule } from 'src/app/material.module';
-/*import {DynamicFormComponent} from 'src/app/components/dynamic-form/dynamic-form.component';
-import { DynamicFieldDirective } from 'src/app/components/dynamic-field/dynamic-field.directive';*/
+import { NgZorroAntdModule } from 'src/app/ng-zorro-antd.module';
+import { DynamicFormQuestionComponent } from "../dynamic-form-question/dynamic-form-question.component";
+import {DynamicFormComponent} from 'src/app/components/dynamic-form/dynamic-form.component';
+import { FormContainerRoutingModule } from './form-container-routing.module';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
-  standalone: true,
-  selector: 'app-form-container',
-  templateUrl: './form-container.component.html',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule],
-  providers: [QuestionControlService]//, DynamicFieldDirective
+    standalone: true,
+    selector: 'app-form-container',
+    templateUrl: './form-container.component.html',
+    providers: [QuestionControlService],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, MaterialModule, FormContainerRoutingModule,
+      NgZorroAntdModule, DynamicFormComponent, DynamicFormQuestionComponent]
 })
 export class FormContainerComponent implements OnInit {
  // @ViewChild(DynamicFormComponent) form!: DynamicFormComponent;
   regConfig: FieldConfig[] =  sampleForms.formContatto;
+  @Input() formKind: string = '';
   questions: QuestionBase<string>[] | undefined;
-  empForm!: FormGroup;
-  //form!: FormGroup;
+  newForm!: FormGroup
   payLoad = '';
+  newFormTitle: string = 'Form';
 
   constructor(public service: QuestionService, private qcs: QuestionControlService, public translate: TranslateService,
+    private route: ActivatedRoute, private router: Router,
     private fb: FormBuilder) {
-    translate.addLangs(environment.arrayLangs);
-    this.translate.setDefaultLang(environment.defaultLang);
-    this.translate.use(environment.defaultLang)
-     service.getQuestions().subscribe({
-      next: (questions: any) => {
-        this.questions = JSON.parse(JSON.stringify(questions));
-        console.log("this.questions: ", this.questions);
+      translate.addLangs(environment.arrayLangs);
+      this.translate.setDefaultLang(environment.defaultLang);
+      this.translate.use(environment.defaultLang);
+  }
+
+  ngOnInit() {
+    this.route.data.subscribe({
+      next: ({form}) => {
+        this.questions = form;
+        console.log("Questions: ", this.questions);
+        this.newForm = this.qcs.toFormGroup(this.questions as QuestionBase<string>[]);
+        this.newFormTitle = form.strDrink;
       },
       error: (error: any) => {
         console.error(error);
@@ -48,44 +59,21 @@ export class FormContainerComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    //this.form = this.qcs.toFormGroup(this.questions as QuestionBase<string>[]);
-    this.empForm = this.fb.group({
-      employees: this.fb.array([])
-    });
-  }
-
-  employees(): FormArray {
-    return this.empForm.get('employees') as FormArray;
-  }
-
-  newEmployee(): FormGroup {
-    return this.fb.group({
-      firstName: '',
-      lastName: '',
-      skills: this.fb.array([])
-    });
-  }
-
-  addEmployee() {
-    this.employees().push(this.newEmployee());
-  }
-
-  removeEmployee(empIndex: number) {
-    this.employees().removeAt(empIndex);
-  }
-
-  employeeSkills(empIndex: number): FormArray {
-    return this.employees()
-      .at(empIndex)
-      .get('skills') as FormArray;
-  }
-
   newSkill(): FormGroup {
     return this.fb.group({
       skill: '',
       exp: ''
     });
+  }
+
+  formFields(): FormArray {
+    return this.newForm.get('formCharacteristic') as FormArray;
+  }
+
+  employeeSkills(empIndex: number): FormArray {
+    return this.formFields()
+      .at(empIndex)
+      .get('skills') as FormArray;
   }
 
   addEmployeeSkill(empIndex: number) {
@@ -97,10 +85,37 @@ export class FormContainerComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.empForm.value);
+    console.log(this.newForm.value);
   }
 
   submit(payload: any) {
     alert('Submitted payload is ' + JSON.stringify(payload, null, 2));
   }
 }
+
+
+
+/**this.newForm = this.fb.group({
+      formCharacteristic: this.fb.array([])
+    });
+
+    formFields(): FormArray {
+    return this.newForm.get('formCharacteristic') as FormArray;
+  }
+
+  newEmployee(): FormGroup {
+    return this.fb.group({
+      campo1: '',
+      campo2: '',
+      skills: this.fb.array([])
+    });
+  }
+
+  addFormBlock() {
+    this.formFields().push(this.newEmployee());
+  }
+
+  removeFormBlock(empIndex: number) {
+    this.formFields().removeAt(empIndex);
+  }
+*/
