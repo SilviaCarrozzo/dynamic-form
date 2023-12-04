@@ -9,9 +9,13 @@ const routes: Routes = [
     path: 'dettaglio/:formKind',
     component: FormContainerComponent,
     resolve: {
+      form: QuestionService,
+    },
+    /*
+    resolve: {
             'form': (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) =>
                         inject(QuestionService).getQuestions(route.paramMap.get('formKind')!)
-    }
+    }*/
   }
 ];
 
