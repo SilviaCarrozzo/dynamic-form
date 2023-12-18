@@ -16,19 +16,19 @@ export class QuestionService {
   getQuestions(formKind: string) {
     switch(formKind) {
       case 'characteristicForm': {
-        return of(formSet.characteristicForm.sort((a, b) => a.order - b.order));
+        return of(formSet.characteristicForm.sort((a, b) => (a.order && b.order)?a.order - b.order: 0));
        // break;
       }
       case 'processForm': {
-        return of(formSet.processForm.sort((a, b) => a.order - b.order));
+        return of(formSet.processForm.sort((a, b) => (a.order && b.order)?a.order - b.order: 0));
         //break;
       }
       case 'planForm': {
-        return of(formSet.planForm.sort((a, b) => a.order - b.order));
+        return of(formSet.planForm.sort((a, b) => (a.order && b.order)?a.order - b.order: 0));
         //break;
       }
       default: {
-        return of(formSet.characteristicForm.sort((a, b) => a.order - b.order));
+        return of(formSet.characteristicForm.sort((a, b) => (a.order && b.order)?a.order - b.order: 0));
         //break;
       }
     };
