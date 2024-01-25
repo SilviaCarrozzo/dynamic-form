@@ -1,0 +1,102 @@
+<div class="form">
+  <h1 class="text-center">Modulo:</h1>
+
+  <form nz-form [formGroup]="newForm" (ngSubmit)="onSubmit()" class="ant-form ant-advanced-search-form ant-form-horizontal">
+    <div nz-row="" class="ant-row form-row"> <!--[formArrayName]="newForm"-->
+      <div *ngFor="let field of formFields().controls; let empIndex=index">
+        <div class="jumbotron"
+          [formGroupName]="formKind">
+          {{formKind}}
+
+          <div *ngFor="let question of questions" class="form-row">
+            <app-question [question]="question" [form]="newForm"></app-question>
+          </div>
+
+          <div class="form-row">
+            <button type="submit" [disabled]="!(newForm.valid)">Save</button>
+          </div>
+
+          <div formArrayName="skills" class="form-row">
+            <div
+              *ngFor="let skill of employeeSkills(empIndex).controls; let skillIndex=index"
+            >
+              <div [formGroupName]="skillIndex">
+                {{skillIndex}} Skill :
+                <nz-form-item>
+                  <nz-form-label nzLabelAlign="left" [nzSm]="14" [nzXs]="24" nzFor="skill">skill 1</nz-form-label>
+                  <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="campo1">
+                    <input nz-input nzSize="small" id="skill" formControlName="skill" placeholder="campo1"/>
+                  </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                  <nz-form-label nzLabelAlign="left" [nzSm]="14" [nzXs]="24" nzFor="exp">Exp:</nz-form-label>
+                  <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="exp">
+                    <input nz-input nzSize="small" id="exp" formControlName="exp" placeholder="exp"/>
+                  </nz-form-control>
+                </nz-form-item>
+
+                <button nz-button nzSize="small" nzType="primary" (click)="removeEmployeeSkill(empIndex,skillIndex)" class="search-button">Rimuovi campi</button>
+              </div>
+            </div>
+          </div>
+          <button nz-button nzSize="small" nzType="primary" (click)="addEmployeeSkill(empIndex)" class="search-button">Aggiungi atri campi</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="form-row">
+      <button type="submit" [disabled]="!newForm.valid">Save</button>
+    </div>
+
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br />{{ payLoad }}
+  </div>
+
+  {{this.newForm.value | json}}
+  <div class="margin-top">
+  </div>
+</div>
+
+<!--
+
+  <button nz-button nzSize="small" nzType="primary" (click)="addFormBlock()" class="search-button">Aggiungi form</button>
+
+  <button nz-button nzSize="small" nzType="primary" (click)="removeFormBlock(empIndex)" class="search-button">Rimuovi Form</button>
+
+  <nz-form-item>
+      <nz-form-label nzLabelAlign="left" [nzSm]="14" [nzXs]="24" nzFor="campo1">Campo 1</nz-form-label>
+      <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="campo1">
+        <input nz-input nzSize="small" id="campo1" formControlName="campo1" placeholder="campo1"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzLabelAlign="left" [nzSm]="14" [nzXs]="24" nzFor="campo1">Campo 2</nz-form-label>
+      <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="campo2">
+        <input nz-input nzSize="small" id="campo1" formControlName="campo1" placeholder="campo1"/>
+      </nz-form-control>
+    </nz-form-item>
+
+   <dynamic-form [fields]="regConfig" (submit)="submit($event)">
+  </dynamic-form>
+
+
+  {{ form.value | json }}
+  <div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let question of questions" class="form-row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br />{{ payLoad }}
+  </div>
+</div>-->

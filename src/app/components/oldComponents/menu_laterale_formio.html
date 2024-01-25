@@ -1,0 +1,195 @@
+<ul>
+  <li nz-menu-item nzMatchRouter>
+    <div class="col-xs-4 col-sm-3 col-md-2 formcomponents ng-scope" style="height: 600px;">
+      <!-- ngIf: form.display !== 'pdf' -->
+      <mat-toolbar close-others="true" ng-if="form.display !== 'pdf'" class="ng-scope">
+        <div role="tablist" class="panel-group" ng-transclude="">
+        <!-- ngRepeat: (groupName, group) in formComponentGroups -->
+        <div ng-repeat="(groupName, group) in formComponentGroups" heading="Basic Components" is-open="$first" class="panel panel-default form-builder-panel"><div role="tab" id="accordiongroup-43-9857-tab" aria-selected="false" class="panel-heading" ng-keypress="toggleOpen($event)">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="" aria-expanded="false" aria-controls="accordiongroup-43-9857-panel" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading" ng-disabled="isDisabled" uib-tabindex-toggle=""><span uib-accordion-header="" ng-class="{'text-muted': isDisabled}" class="ng-binding">Basic Components</span></a>
+    </h4>
+  </div>
+  <div id="mattoolbargroup-43-9857-panel" aria-labelledby="accordiongroup-43-9857-tab" aria-hidden="true" role="tabpanel" class="panel-collapse collapse" uib-collapse="!isOpen" aria-expanded="false" style="height: 0px;">
+    <div class="panel-body" ng-transclude="">
+          <!-- ngIf: group.subgroups -->
+          <!-- ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Text Field" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-terminal"></i><!-- end ngIf: component.icon --> Text Field
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Number" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-hashtag"></i><!-- end ngIf: component.icon --> Number
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Password" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-asterisk"></i><!-- end ngIf: component.icon --> Password
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Text Area" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-font"></i><!-- end ngIf: component.icon --> Text Area
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Check Box" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-check-square"></i><!-- end ngIf: component.icon --> Check Box
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Select Boxes" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-plus-square"></i><!-- end ngIf: component.icon --> Select Boxes
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Select" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-th-list"></i><!-- end ngIf: component.icon --> Select
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Radio" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-dot-circle-o"></i><!-- end ngIf: component.icon --> Radio
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="HTML Element" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-code"></i><!-- end ngIf: component.icon --> HTML Element
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Content" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-html5"></i><!-- end ngIf: component.icon --> Content
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Button" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-stop"></i><!-- end ngIf: component.icon --> Button
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] -->
+        </div>
+  </div>
+  </div><!-- end ngRepeat: (groupName, group) in formComponentGroups -->
+  <div mat-toolbar-group="" ng-repeat="(groupName, group) in formComponentGroups" heading="Special Components" is-open="$first" class="panel panel-default form-builder-panel"><div role="tab" id="accordiongroup-45-2868-tab" aria-selected="false" class="panel-heading" ng-keypress="toggleOpen($event)">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="" aria-expanded="false" aria-controls="accordiongroup-45-2868-panel" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading" ng-disabled="isDisabled" uib-tabindex-toggle=""><span uib-accordion-header="" ng-class="{'text-muted': isDisabled}" class="ng-binding">Special Components</span></a>
+    </h4>
+  </div>
+  <div id="mattoolbargroup-45-2868-panel" aria-labelledby="accordiongroup-45-2868-tab" aria-hidden="true" role="tabpanel" class="panel-collapse collapse" uib-collapse="!isOpen" aria-expanded="false" style="height: 0px;">
+    <div class="panel-body" ng-transclude="">
+          <!-- ngIf: group.subgroups -->
+          <!-- ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Email" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-at"></i><!-- end ngIf: component.icon --> Email
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Phone Number" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-phone-square"></i><!-- end ngIf: component.icon --> Phone Number
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Address" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-home"></i><!-- end ngIf: component.icon --> Address
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Date / Time" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-calendar-plus-o"></i><!-- end ngIf: component.icon --> Date / Time
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Day" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-calendar"></i><!-- end ngIf: component.icon --> Day
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Time" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-clock-o"></i><!-- end ngIf: component.icon --> Time
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Currency" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-usd"></i><!-- end ngIf: component.icon --> Currency
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Hidden" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-user-secret"></i><!-- end ngIf: component.icon --> Hidden
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Resource" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-files-o"></i><!-- end ngIf: component.icon --> Resource
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="File" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-file"></i><!-- end ngIf: component.icon --> File
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Form" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-wpforms"></i><!-- end ngIf: component.icon --> Form
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Signature" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-pencil"></i><!-- end ngIf: component.icon --> Signature
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Custom" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-cubes"></i><!-- end ngIf: component.icon --> Custom
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Container" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-folder-open"></i><!-- end ngIf: component.icon --> Container
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Data Grid" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-th"></i><!-- end ngIf: component.icon --> Data Grid
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Edit Grid" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-tasks"></i><!-- end ngIf: component.icon --> Edit Grid
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Survey" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-list"></i><!-- end ngIf: component.icon --> Survey
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] -->
+        </div>
+  </div>
+  </div><!-- end ngRepeat: (groupName, group) in formComponentGroups --><div uib-accordion-group="" ng-repeat="(groupName, group) in formComponentGroups" heading="Layout Components" is-open="$first" class="panel panel-default form-builder-panel"><div role="tab" id="accordiongroup-47-1043-tab" aria-selected="false" class="panel-heading" ng-keypress="toggleOpen($event)">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="" aria-expanded="false" aria-controls="accordiongroup-47-1043-panel" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading" ng-disabled="isDisabled" uib-tabindex-toggle=""><span uib-accordion-header="" ng-class="{'text-muted': isDisabled}" class="ng-binding">Layout Components</span></a>
+    </h4>
+  </div>
+  <div id="toolbargroup-47-1043-panel" aria-labelledby="accordiongroup-47-1043-tab" aria-hidden="true" role="tabpanel" class="panel-collapse collapse" uib-collapse="!isOpen" aria-expanded="false" style="height: 0px;">
+    <div class="panel-body" ng-transclude="">
+          <!-- ngIf: group.subgroups -->
+          <!-- ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Columns" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-columns"></i><!-- end ngIf: component.icon --> Columns
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Field Set" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-th-large"></i><!-- end ngIf: component.icon --> Field Set
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Panel" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-list-alt"></i><!-- end ngIf: component.icon --> Panel
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Table" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-table"></i><!-- end ngIf: component.icon --> Table
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] --><!-- ngIf: !group.subgroup && component.title --><div ng-repeat="component in formComponentsByGroup[groupName]" ng-if="!group.subgroup &amp;&amp; component.title" dnd-draggable="component.settings" dnd-dragstart="dndDragIframeWorkaround.isDragging = true" dnd-dragend="dndDragIframeWorkaround.isDragging = false" dnd-effect-allowed="copy" class="formcomponentcontainer ng-scope" draggable="true">
+            <span class="btn btn-primary btn-xs btn-block formcomponent ng-binding" title="Well" style="overflow: hidden; text-overflow: ellipsis;">
+              <!-- ngIf: component.icon --><i ng-if="component.icon" class="fa fa-square-o"></i><!-- end ngIf: component.icon --> Well
+            </span>
+          </div><!-- end ngIf: !group.subgroup && component.title --><!-- end ngRepeat: component in formComponentsByGroup[groupName] -->
+        </div>
+  </div>
+  </div><!-- end ngRepeat: (groupName, group) in formComponentGroups --><div uib-accordion-group="" ng-repeat="(groupName, group) in formComponentGroups" heading="Existing Resource Fields" is-open="$first" class="panel panel-default form-builder-panel subgroup-accordion-container"><div role="tab" id="accordiongroup-49-7194-tab" aria-selected="false" class="panel-heading" ng-keypress="toggleOpen($event)">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="" aria-expanded="false" aria-controls="accordiongroup-49-7194-panel" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading" ng-disabled="isDisabled" uib-tabindex-toggle=""><span uib-accordion-header="" ng-class="{'text-muted': isDisabled}" class="ng-binding">Existing Resource Fields</span></a>
+    </h4>
+  </div>
+  <div id="matgroup-49-7194-panel" aria-labelledby="accordiongroup-49-7194-tab" aria-hidden="true" role="tabpanel" class="panel-collapse collapse" uib-collapse="!isOpen" aria-expanded="false" style="height: 0px;">
+    <div class="panel-body" ng-transclude="">
+          <!-- ngIf: group.subgroups -->
+          <mat-toolbar close-others="true" ng-if="group.subgroups" class="ng-scope">
+            <div role="tablist" class="panel-group" ng-transclude="">
+            <!-- ngRepeat: (subgroupName, subgroup) in group.subgroups -->
+          </div></mat-toolbar><!-- end ngIf: group.subgroups -->
+          <!-- ngRepeat: component in formComponentsByGroup[groupName] -->
+        </div>
+  </div>
+  </div><!-- end ngRepeat: (groupName, group) in formComponentGroups -->
+      </div></mat-toolbar><!-- end ngIf: form.display !== 'pdf' -->
+      <!-- ngIf: form.display === 'pdf' -->
+    </div>
+
+  </li>
+</ul>

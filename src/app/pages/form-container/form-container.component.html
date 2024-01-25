@@ -1,67 +1,79 @@
 <div class="form">
-  <h1 class="text-center">Modulo:</h1>
 
-  <form nz-form [formGroup]="newForm" (ngSubmit)="onSubmit()" class="ant-form ant-advanced-search-form ant-form-horizontal">
-    <div nz-row="" class="ant-row form-row" formArrayName="formCharacteristic">
-      <div *ngFor="let field of formFields().controls; let empIndex=index">
-        <div class="jumbotron"
-          [formGroupName]="empIndex">
-          {{empIndex}}
+  <form nz-form [formGroup]="newForm" (ngSubmit)="onSubmit()" class="ant-advanced-search-form ant-form">
 
-          <div *ngFor="let question of questions" class="form-row">
-            <app-question [question]="question" [form]="newForm"></app-question>
-          </div>
+    <fieldset class="ant-row form-row row">
+      <legend>{{ formKind | translate }}:</legend>
+      <br/>
+        <app-question *ngFor="let question of questions; let i = index" [question]="question" class="col col-md-4 col-sm-4" [form]="newForm"></app-question>
 
-          <div class="form-row">
-            <button type="submit" [disabled]="!(newForm.valid)">Save</button>
-          </div>
+        <nz-form-item class="ant-row form-row row" *ngFor="let control of listOfControl; let i = index">
+          <nz-form-label [nzXs]="24" [nzSm]="4" *ngIf="i === 0" [nzFor]="control.controlInstance">
+            {{'additionalField' | translate }}
+          </nz-form-label>
+          <nz-form-control
+            [nzXs]="24"
+            [nzSm]="20"
+            [nzOffset]="i === 0 ? 0 : 4"
+            nzErrorTip="{{'suggestAdditionalField' | translate }}"
+          >
+            <input
+              class="passenger-input"
+              nz-input
+              placeholder="placeholder"
+              [attr.id]="control.id"
+              [formControlName]="control.controlInstance"
+            />
+            <span
+              nz-icon
+              nzType="minus-circle-o"
+              class="dynamic-delete-button"
+              (click)="removeField(control, $event)"
+            ></span>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+            <button nz-button nzType="dashed" class="add-button" (click)="addField($event)">
+              <span nz-icon nzType="plus"></span>
+              {{'addField' | translate }}
+            </button>
+          </nz-form-control>
+        </nz-form-item>
 
-          <div formArrayName="skills" class="form-row">
-            <div
-              *ngFor="let skill of employeeSkills(empIndex).controls; let skillIndex=index"
-            >
-              <div [formGroupName]="skillIndex">
-                {{skillIndex}} Skill :
-                <nz-form-item>
-                  <nz-form-label nzLabelAlign="left" [nzSm]="14" [nzXs]="24" nzFor="skill">skill 1</nz-form-label>
-                  <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="campo1">
-                    <input nz-input nzSize="small" id="skill" formControlName="skill" placeholder="campo1"/>
-                  </nz-form-control>
-                </nz-form-item>
+    </fieldset>
 
-                <nz-form-item>
-                  <nz-form-label nzLabelAlign="left" [nzSm]="14" [nzXs]="24" nzFor="exp">Exp:</nz-form-label>
-                  <nz-form-control [nzSm]="6" [nzXs]="24" nzErrorTip="exp">
-                    <input nz-input nzSize="small" id="exp" formControlName="exp" placeholder="exp"/>
-                  </nz-form-control>
-                </nz-form-item>
-
-                <button nz-button nzSize="small" nzType="primary" (click)="removeEmployeeSkill(empIndex,skillIndex)" class="search-button">Rimuovi campi</button>
-              </div>
-            </div>
-          </div>
-          <button nz-button nzSize="small" nzType="primary" (click)="addEmployeeSkill(empIndex)" class="search-button">Aggiungi atri campi</button>
-        </div>
-      </div>
-
-    </div>
     <div class="form-row">
       <button type="submit" [disabled]="!newForm.valid">Save</button>
     </div>
-
   </form>
 
   <div *ngIf="payLoad" class="form-row">
     <strong>Saved the following values</strong><br />{{ payLoad }}
+    <br/>
+    <p>NewForm value: {{this.newForm.value | json}}</p>
   </div>
 
-  {{this.newForm.value | json}}
+
   <div class="margin-top">
   </div>
 </div>
 
-<!--
 
+
+<!--
+  <div nz-row="" class="ant-row form-row row"> [formArrayName]="newForm"
+
+    <div *ngFor="let field of formFields().controls; let empIndex=index">
+      </div>
+
+      <nz-form-item>
+        <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+          <button nz-button nzType="primary">Submit</button>
+        </nz-form-control>
+      </nz-form-item>
+
+    </div>
   <button nz-button nzSize="small" nzType="primary" (click)="addFormBlock()" class="search-button">Aggiungi form</button>
 
   <button nz-button nzSize="small" nzType="primary" (click)="removeFormBlock(empIndex)" class="search-button">Rimuovi Form</button>

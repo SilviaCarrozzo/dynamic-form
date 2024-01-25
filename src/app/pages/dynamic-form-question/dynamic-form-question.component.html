@@ -1,16 +1,34 @@
 <div [formGroup]="form">
-  <label [attr.for]="question.key">{{question.label}}</label>
 
-  <div [ngSwitch]="question.controlType">
+  <nz-form-item [ngSwitch]="question.type">
+    <nz-form-label nzLabelAlign="left" [nzSpan]="10" [attr.for]="question.id">{{question.label}}</nz-form-label>
+    <nz-form-control [nzSpan]="15" nzErrorTip="{{question.label}} is required!">
 
-    <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
-            [id]="question.key" [type]="question.type">
+      <input *ngSwitchCase="'input'" [type]="question.inputType" nz-input nzSize="small" [id]="question.id" [formControlName]="question.name"
+        [required]="question.required || false" [placeholder]="question.name"/>
 
-    <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
-      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
-    </select>
+      <nz-select *ngSwitchCase="'select'" [id]="question.id" nzSize="small" [nzPlaceHolder]="question.name" nzShowSearch
+        [scrollTop]="0" [formControlName]="question.name" ><!--(ngModelChange)="aggiornaPlanM($event)"-->
+        <nz-option *ngFor="let opt of question.options; let i = index" [nzLabel]="opt.value" [nzValue]="opt.key"></nz-option>
+      </nz-select>
 
-  </div>
+    </nz-form-control>
+  </nz-form-item>
 
-  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+  <div class="errorMessage invalid-feedback" *ngIf="!isValid">{{question.label}} is required</div>
 </div>
+
+<!--
+  name: string;
+  id: string;
+  value: any;
+  key?: string;
+  label: string;
+  validations?: {name: string, validator: Validator, message: string}[];
+  required?: boolean;
+  order?: number;
+  controlType?: string;
+  type: string;
+  inputType: string;
+  options?: {key: string, value: string}[];
+-->

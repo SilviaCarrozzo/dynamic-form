@@ -1,13 +1,13 @@
 {
-  "form": "Modulo",
-  "addForm": "Aggiungi Modulo",
-  "availableForms": "Modelli disponibili",
+  "form": "Form",
+  "addForm": "Add Form",
+  "availableForms": "Available Forms",
   "characteristicForm": "Characteristic Form",
   "planForm": "Plan Master Form",
   "processForm": "Process Form",
   "defectForm": "Defect Form",
   "defectGroupForm": "Defect Group Form",
-  "addField": "Aggiungi campo",
-  "additionalField": "Campo aggiuntivo",
+  "addField": "Add field",
+  "additionalField": "Additional field",
   "suggestAdditionalField": "Please input additional field's name or delete this field."
 }

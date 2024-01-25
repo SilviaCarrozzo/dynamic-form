@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BlockUIModule } from 'ng-block-ui';
 import { environment } from 'src/environments/environment';
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
@@ -31,9 +31,6 @@ import { SelectComponent } from './components/select/select.component';
 import { DateComponent } from './components/date/date.component';
 import { RadiobuttonComponent } from './components/radiobutton/radiobutton.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
-//import { DynamicFieldDirective } from './components/dynamic-field/dynamic-field.directive';
-//import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
-//import { AuthModule } from './auth/auth.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -79,10 +76,7 @@ export function translateFactory(translate: TranslateService) {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    //DynamicFieldDirective,
-    //DynamicFormComponent,
-    //DynamicFormQuestionComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +93,6 @@ export function translateFactory(translate: TranslateService) {
     InputComponent,
     ButtonComponent,
     SelectComponent,
-   // DynamicFieldDirective,
     DateComponent,
     RadiobuttonComponent,
     CheckboxComponent,

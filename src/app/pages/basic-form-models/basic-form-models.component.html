@@ -1,9 +1,26 @@
-<h3>Modelli disponibili</h3>
+<h3>{{'availableForms' | translate}}</h3>
 
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let mod of formModels" >
-      <a [routerLink]="mod.id">{{mod.label}}</a></li>
-    <li class="list-group-item">Aggiungi Modulo</li>
+      <a [routerLink]="['form', mod]" routerLinkActive="active" ariaCurrentWhenActive="page">{{mod | translate }}</a></li>
+    <li class="list-group-item">
+      <button nz-button nzType="dashed" class="add-button" (click)="addForm($event)">
+        <span nz-icon nzType="plus"></span>
+        {{'addForm' | translate }}
+      </button>
+
+      <button
+        nz-icon
+        nzType="minus-circle-o"
+        class="dynamic-delete-button"
+        (click)="removeForm($event)"
+      ></button>
+    </li>
   </ul>
+
+
+
+
+
 
   <!-- @foreach ($models as $model) <li ><a href="/admin/{{$model->name}}" class="list-group-item list-group-item-action"></a></li>-->
